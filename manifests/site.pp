@@ -4,7 +4,7 @@ node 'master.puppet.vm' {
   include role::master_server
   file { '/root/README':
     ensure => file,
-    content => "hostname $fqdn\nkernel $kernelrelease\n",
+    content => "hostname " $fqdn "\nkernel " $kernelrelease "\n",
 }
 node /^web/ {
   include role::app_server
