@@ -11,4 +11,3 @@ class profile::master_hosts {
     target => '/etc/hosts',
   }
 }
-
