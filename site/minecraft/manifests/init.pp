@@ -13,7 +13,7 @@ class minecraft {
   }
   
   file {'/opt/minecraft/eula.txt':
-    ensure => file
+    ensure => file,
     content => 'eula=true',
   }
   
