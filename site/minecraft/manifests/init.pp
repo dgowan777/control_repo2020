@@ -3,9 +3,14 @@ class minecraft (
   $install_dir = '/opt/minecraft'
 ){
 
-  file {$install_dir:
-    ensure => directory,
-  }
+  $dirtree = dirtree($install_dir)
+  ensure_resource('file', $dirtree, {
+    'ensure' => 'directory',
+  })
+  
+  #file {$install_dir:
+  #  ensure => directory,
+  #}
   
   file {"${install_dir}/server.jar":
     ensure => file,
