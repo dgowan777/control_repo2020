@@ -24,7 +24,9 @@ class minecraft (
   
   file {'/etc/systemd/system/minecraft.service':
     ensure => file,
-    source => 'puppet:///modules/minecraft/minecraft.service',
+    content => epp('minecraft/templates/minecraft.service',{
+      install_dir => $install_dir,
+    })
   }
   
   service {'minecraft':
